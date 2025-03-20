@@ -20,6 +20,12 @@ public class Usuario {
         this.contra = contra;
     }
 
+    public Usuario(String login) {
+        this.login = login;
+    }
+    
+    
+
     public String getLogin() {
         return login;
     }

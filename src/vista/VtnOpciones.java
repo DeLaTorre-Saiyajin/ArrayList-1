@@ -4,11 +4,16 @@
  */
 package vista;
 
+import controlador.Empresa;
+import java.awt.BorderLayout;
+
 /**
  *
  * @author dam
  */
 public class VtnOpciones extends javax.swing.JFrame {
+    
+    PanelAlta panelAlta = new PanelAlta(Empresa empresa, int posLogin);
 
     /**
      * Creates new form VtnOpciones
@@ -28,11 +33,25 @@ public class VtnOpciones extends javax.swing.JFrame {
 
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        mnuAlta = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jMenu1.setText("File");
+
+        mnuAlta.setText("Alta de Noticias");
+        mnuAlta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuAltaActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mnuAlta);
+
+        jMenu4.setText("jMenu4");
+        jMenu1.add(jMenu4);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Edit");
@@ -40,19 +59,21 @@ public class VtnOpciones extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
-        );
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void mnuAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAltaActionPerformed
+        eliminarPaneles();
+        panelAlta = new PanelAlta(Empresa empresa, int posLogin);
+        /*
+        <<<<<<<<<<<MUY IMPORTANTE>>>>>>>>>>>>>>>>
+        
+        ESTABLECER BORDERLAYOUT PARA QUE CAMBIE VENTANAS EN TIEMPO DE EJECUCIÓN
+        
+        SINO SE HACE NO APARECERÁN NUEVAS VENTANAS
+        */
+        getContentPane().add(panelAlta,BorderLayout.CENTER);
+    }//GEN-LAST:event_mnuAltaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -92,6 +113,18 @@ public class VtnOpciones extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu mnuAlta;
     // End of variables declaration//GEN-END:variables
+
+    private void eliminarPaneles() {
+        try{
+            remove(panelAlta);
+            
+        }
+        catch(Exception ex){
+            
+        }
+    }
 }
