@@ -5,6 +5,7 @@
 package vista;
 
 import controlador.Empresa;
+import java.awt.BorderLayout;
 
 /**
  *
@@ -35,7 +36,7 @@ public class VtnMenu extends javax.swing.JFrame {
     este menú, para que podamos añadir el panel cuando sea seleccionado.
     */
     PanelAlta altaNoticia;
-    VtnConsultaNoticia consultaNoticia;
+    PanelConsulta consultaNoticia;
     
     
     /*
@@ -164,13 +165,14 @@ public class VtnMenu extends javax.swing.JFrame {
      -Para finalizar realixaremos un pack() para asegurarnos de que los elementos
       se cargan correctamente.
     
-     NOTA IMPORTANTE: Las ventanas deben de tener el LayOut BorederLayout ç
-     mientras que los paneles pueden tener el LayOut Free Design.
+     NOTA IMPORTANTE: Las ventanas QUE CONECTAN CON PANELES deben de tener el 
+     LayOut BorederLayout o FlowLayout para poder mostrar el panel.
+     mientras que las demás ventanas y paneles pueden tener el LayOut Free Design.
     */
     private void mnuConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuConsultaActionPerformed
         eliminarPaneles();
-        consultaNoticia = new VtnConsultaNoticia(empresa);
-        getContentPane().add(consultaNoticia);
+        consultaNoticia = new PanelConsulta(empresa,posLog);
+        getContentPane().add(consultaNoticia,BorderLayout.CENTER);
         pack();
     }//GEN-LAST:event_mnuConsultaActionPerformed
 

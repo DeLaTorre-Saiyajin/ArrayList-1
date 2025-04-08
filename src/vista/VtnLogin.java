@@ -2,7 +2,6 @@ package vista;
 
 import controlador.Empresa;
 import javax.swing.JOptionPane;
-import modelo.Usuario;
 import utilidades.Encriptar;
 
 /**

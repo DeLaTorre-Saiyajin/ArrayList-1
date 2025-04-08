@@ -27,7 +27,7 @@ public class Empresa {
 
     ArrayList<Categoria> categorias;
 
-    ArrayList<Noticia> noticias;
+    private ArrayList<Noticia> noticias;
 
     public Empresa() {
 
@@ -207,6 +207,35 @@ public class Empresa {
         return usuarios.get(pos).getLogin();
 
     }
+    
+    public ArrayList<Noticia> getNoticias() {
+        return noticias;
+    }
+    
+    public boolean comprobarNoticiaUsuario(int cod, int posLog){
+        
+        boolean resultado=false;
+        
+        int pos = noticias.indexOf(new Noticia(cod));
+        
+        
+        if(pos!=-1){
+            
+            if(usuarios.get(posLog).getLogin().equals(noticias.get(pos).getUsuario())){
+                resultado=true;
+            }
+            
+        }
+        return resultado;
+    }
+    
+    public void eliminarNoticia(int codigoNoticia) {
+        
+        int pos = noticias.indexOf(new Noticia(codigoNoticia));
+        
+        noticias.remove(pos);
+        
+    }
 
     public boolean grabarNoticia(int codigo, String deno, String fecha, String codCate, int posLogin) {
         boolean resultado = false;
@@ -217,5 +246,9 @@ public class Empresa {
         }
         return resultado;
     }
+
+    
+
+    
 
 }

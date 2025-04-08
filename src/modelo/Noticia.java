@@ -12,11 +12,11 @@ import utilidadesString.Fecha;
  */
 public class Noticia {
     
-    int cod;
-    String titulo;
-    String usuario;
-    String fecha;
-    String categoria;
+    private int cod;
+    private String titulo;
+    private String usuario;
+    private String fecha;
+    private String categoria;
 
     public Noticia(int cod, String titulo, String usuario, String fecha, String categoria) {
         this.cod = cod;
@@ -51,6 +51,28 @@ public class Noticia {
         final Noticia other = (Noticia) obj;
         return this.cod == other.cod;
     }
+
+    public int getCod() {
+        return cod;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+    
+    
     
     
 }
